@@ -1,0 +1,11 @@
+import {cp,mkdir,readFile,writeFile,rm} from 'node:fs/promises';
+import {build} from 'esbuild';
+await rm('dist',{recursive:true,force:true});
+await mkdir('dist',{recursive:true});
+await cp('planner/index.html','dist/index.html');
+await cp('planner/style.css','dist/style.css');
+await build({entryPoints:['planner/app.js'],outfile:'dist/app.js',bundle:true,format:'esm',minify:true,target:['es2020'],define:{__EMULATOR_TEST__:'false'}});
+const js=await readFile('dist/app.js','utf8');
+for(const marker of ['__tlcTest','demo-tlc-planner','localhost:9099'])if(js.includes(marker))throw Error('Test-only code in deployment: '+marker);
+await writeFile('dist/.nojekyll','');
+console.log('Production planner built at site root; emulator helpers excluded.');

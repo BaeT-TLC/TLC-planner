@@ -1,0 +1,14 @@
+{
+  "name": "tlc-planner-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "firebase": "10.14.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

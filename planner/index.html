@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bae T | TLC 플래너</title><link rel="stylesheet" href="./style.css"></head>
+<body><header><div><small>BAE T · THINKING & LEARNING COACHING</small><h1>TLC 플래너</h1></div><button id="login">Google 로그인</button><button id="logout" hidden>로그아웃</button></header>
+<p id="status" role="status">로그인 후 등록된 학생만 이용할 수 있습니다.</p>
+<main id="workspace" hidden>
+<section id="coach" hidden><h2>코치 데스크</h2><form id="register"><label>학생 Google 이메일 <input id="email" type="email" required maxlength="254"></label><button>학생 등록</button></form><label>학생 선택 <select id="students"></select></label><button id="revoke" type="button">선택 학생 접근 해제</button></section>
+<section><div class="toolbar"><h2 id="student-title">나의 주간 계획</h2><label>스킨 <select id="skin"><option value="forest">포레스트</option><option value="ocean">오션</option><option value="peach">피치</option><option value="night">나이트</option></select></label></div>
+<div class="toolbar"><button id="prev">← 이전 주</button><strong id="week-label"></strong><button id="next">다음 주 →</button></div><div id="week" class="week"></div></section>
+<section><h2>과목별 공부 타이머</h2><label>과목 <input id="subject" maxlength="60" placeholder="예: 수학"></label><button id="start">시작</button><button id="stop" disabled>종료 · 저장</button><output id="elapsed">00:00:00</output><p>시작 시각을 저장합니다. 창을 닫아도 종료할 때까지 시간이 이어집니다. 자정 기준은 한국 시간입니다.</p></section>
+<section><h2>공부 통계</h2><div id="stats"></div></section>
+<section><h2>Gmail · 미연결 샘플</h2><p>샘플: “오늘의 학습 계획을 확인해 보세요.”</p><p>실제 메일을 읽거나 발송하지 않습니다. Google 로그인은 Gmail 연결이 아닙니다.</p></section>
+</main>
+<dialog id="daily"><form id="daily-form"><div class="toolbar"><h2 id="day-title"></h2><button type="button" id="close">닫기</button></div><p id="day-status" role="status"></p><div id="tasks"></div><button type="button" id="add-task">+ 할 일 추가</button>
+<label>배운 내용 요약<textarea id="summary" maxlength="5000"></textarea></label><label>질문<textarea id="questions" maxlength="5000"></textarea></label><label>복습 내용<textarea id="review" maxlength="5000"></textarea></label><label>하루 회고<textarea id="reflection" maxlength="5000"></textarea></label><label>코치 피드백<textarea id="feedback" maxlength="5000"></textarea></label><button id="save-day">저장</button></form></dialog>
+<script type="module" src="./app.js"></script></body></html>
